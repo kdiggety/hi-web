@@ -1,0 +1,96 @@
+h1 {
+  font-size: 2em;
+  color: #0cf;
+  text-align: center;
+}
+
+.app-header{
+  background: #ffe;
+}
+
+.app-menu{
+  background: #333;;
+  width: 150px;
+  height: 1000px;
+  float: left;
+}
+
+.app-body{
+  background: #fff;
+  width: 700px;
+  height: 1000px;
+  float: left;
+}
+
+.asset-header{
+  background: #cff;
+  font-weight: 700;
+  float: left;
+}
+
+.asset-header-right{
+  background: #cff;
+  font-weight: 700;
+  text-align: right;
+}
+
+.label{
+  color: #09f;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.value-label{
+  color: #0a9;
+  font-weight: 400;
+  margin-right: 8px;
+}
+
+.body-header{
+  background-color: #559;
+  color: #0cf;
+  font-weight: 700;
+}
+
+div.div-right{
+  text-align: right;
+}
+
+p.bold {
+  font-weight: 700;
+  line-height: 0.5;
+}
+
+p.normal {
+  line-height: 0.5;
+}
+
+span.bold {
+  font-weight: 700;
+  line-height: 0.5;
+}
+
+span.normal {
+  line-height: 0.5;
+}
+
+ul.app-menu-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.app-menu-item {
+  float: left;
+  line-height: 0.25;
+}
+
+li a {
+  display: block;
+  color: #0cf;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
