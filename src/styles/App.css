@@ -53,8 +53,9 @@ h1 {
   font-weight: 700;
 }
 
+
 div.div-right{
-  text-align: right;
+  margin-left: 38em;
 }
 
 p.bold {
