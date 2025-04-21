@@ -17,17 +17,25 @@ export const WatchlistProvider = ({ children }) => {
     }, [watchlist]);
 
     const addToWatchlist = (asset) => {
+        if (isOnWatchlist(asset._id)) {
+            return
+        }
         setWatchlist((prevWatchlist) => [...prevWatchlist, asset]);
     }
 
     const removeFromWatchlist = (asset) => {
-        setWatchlist((prevWatchlist) => [...prevWatchlist, asset]);
+        setWatchlist((prevWatchlist) => prevWatchlist.filter((item) => item._id !== asset._id));
+    }
+    
+    const isOnWatchlist = (id) => {
+        return watchlist.some(asset => asset._id === id)
     }
 
     const values = {
         watchlist,
         addToWatchlist,
-        removeFromWatchlist
+        removeFromWatchlist,
+        isOnWatchlist,
     }
 
     return (

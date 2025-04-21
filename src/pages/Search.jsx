@@ -1,10 +1,13 @@
 import { useContext, useState } from 'react'
 import AssetList from "@components/AssetList"
 import { AssetsContext } from '@contexts/AssetsContext';
+import { WatchlistContext } from '@contexts/WatchlistContext';
 
 function Search() { 
   const { assets } = useContext(AssetsContext)
   const [filteredAssets, setFilteredAssets] = useState(assets)
+
+  const { watchlist, addToWatchlist, removeFromWatchlist, isOnWatchlist } = useContext(WatchlistContext)
 
   const filterAssets = (e) => {
     const searchTerm = e.target.value.toLowerCase()
@@ -26,9 +29,9 @@ function Search() {
           <input type="text" placeholder="Search..." onChange={filterAssets} />
         </div>
         {
-          (assets === undefined || assets.length === 0) ? <p>Empty Search</p> :
+          (filteredAssets === undefined || filteredAssets.length === 0) ? <p>Empty Search</p> :
             <div>
-              <AssetList assets={filteredAssets} />
+              <AssetList assets={filteredAssets} addAsset={addToWatchlist} removeAsset={removeFromWatchlist} containsAsset={isOnWatchlist} />
             </div>
         }
         </>

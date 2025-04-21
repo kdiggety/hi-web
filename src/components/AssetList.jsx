@@ -1,14 +1,12 @@
-import { useContext } from 'react'
-import { WatchlistContext } from '@contexts/WatchlistContext'
-import AssetCard from '@components/AssetCard'
+import AssetListRow from '@components/AssetListRow'
 
-function AssetList({ assets, openUpdateAsset, deleteAsset }) {
+function AssetList({ assets, addAsset, removeAsset, containsAsset }) {
   return (
         <>
         {
-            assets === undefined || assets.length === 0 ? <p>No assets</p> :
+            (assets === undefined || assets.length === 0) ? <p>No assets</p> :
             assets.map((asset) => (
-                <AssetCard key={asset._id} {...asset} openUpdateAsset={openUpdateAsset} deleteAsset={deleteAsset} />
+                <AssetListRow key={asset._id} asset={asset} addAsset={addAsset} removeAsset={removeAsset} containsAsset={containsAsset} />
             ))
         }
         </>

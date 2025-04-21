@@ -1,10 +1,10 @@
-import { use, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import AssetList from "@components/AssetList"
 import Modal from 'react-modal'
 import { WatchlistContext } from '@contexts/WatchlistContext';
 
 function Watchlist() { 
-  const { watchlist, addToWatchlist, removeFromWatchlist } = useContext(WatchlistContext)
+  const { watchlist, removeFromWatchlist, isOnWatchlist } = useContext(WatchlistContext)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [currentAsset, setCurrentAsset] = useState({})
   
@@ -34,9 +34,9 @@ function Watchlist() {
         <>
         <div className="body-header">Watchlist</div>
         {
-          (watchlist === undefined) ? <p>Empty Watchlist</p> :
+          (watchlist === undefined || watchlist.length === 0) ? <p>Empty Watchlist</p> :
             <div>
-              <AssetList assets={watchlist} openUpdateAsset={openUpdateAsset} />
+              <AssetList assets={watchlist} removeAsset={removeFromWatchlist} containsAsset={isOnWatchlist} />
               <Modal
                   ariaHideApp={false}
                   isOpen={modalIsOpen}

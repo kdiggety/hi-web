@@ -8,7 +8,10 @@ export const AssetsProvider = ({ children }) => {
 
     useEffect(() => {
         if (data !== undefined && data.data !== undefined) {
-            setAssets(data.data);
+            const cleanedData = 
+                data.data.filter(asset => asset !== undefined 
+                    && asset._id !== undefined && asset.name !== undefined)
+            setAssets(cleanedData);
         }
     }, [])
 
