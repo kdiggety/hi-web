@@ -3,14 +3,10 @@ import { createContext, useState, useEffect } from "react";
 export const WatchlistContext = createContext();
 
 export const WatchlistProvider = ({ children }) => {
-    const [watchlist, setWatchlist] = useState([]);
-
-    useEffect(() => {
+    const [watchlist, setWatchlist] = useState(() => {
         const storedWatchlist = localStorage.getItem('watchlist');
-        if (storedWatchlist) {
-            setWatchlist(JSON.parse(storedWatchlist));
-        }
-    }, []);
+        return storedWatchlist ? JSON.parse(storedWatchlist) : [];
+    });
 
     useEffect(() => {
         localStorage.setItem('watchlist', JSON.stringify(watchlist));
