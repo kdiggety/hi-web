@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Watchlist from '@pages/Watchlist'
+import Search from '@pages/Search'
 import Profile from '@pages/Profile'
 
 function Body({ assets, updateAsset, deleteAsset, userProfile }) {
@@ -7,8 +8,8 @@ function Body({ assets, updateAsset, deleteAsset, userProfile }) {
         <div className="app-body">
           <main>
             <Routes>
-              <Route path="/" element={<Watchlist assets={assets} updateAsset={updateAsset} deleteAsset={deleteAsset} />} />
-              <Route path="/search" element={<Watchlist assets={assets} updateAsset={updateAsset} deleteAsset={deleteAsset} />} />
+              <Route path="/" element={<Watchlist />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/profile" element={<Profile userProfile={userProfile} />} />
             </Routes>
           </main>

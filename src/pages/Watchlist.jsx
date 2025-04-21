@@ -1,19 +1,21 @@
-import { useState } from 'react'
+import { use, useContext, useState } from 'react'
 import AssetList from "@components/AssetList"
 import Modal from 'react-modal'
+import { WatchlistContext } from '@contexts/WatchlistContext';
 
-function Watchlist({ assets, updateAsset, deleteAsset }) { 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+function Watchlist() { 
+  const { watchlist, addToWatchlist, removeFromWatchlist } = useContext(WatchlistContext)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   const [currentAsset, setCurrentAsset] = useState({})
   
-  const saveUpdateAsset = (updatedItem) => {
+  /*const saveUpdateAsset = (updatedItem) => {
     setModalIsOpen(false)
     updateAsset(updatedItem)
     setCurrentAsset({})
-  }
+  }*/
 
   const openUpdateAsset = (id) => {
-    const asset = assets.find((asset) => asset._id === id)
+    const asset = watchlist.find((asset) => asset._id === id)
     if (asset) {
       setCurrentAsset(asset)
       setModalIsOpen(true)
@@ -32,9 +34,9 @@ function Watchlist({ assets, updateAsset, deleteAsset }) {
         <>
         <div className="body-header">Watchlist</div>
         {
-          (assets === undefined) ? <p>Loading...</p> :
+          (watchlist === undefined) ? <p>Empty Watchlist</p> :
             <div>
-              <AssetList assets={assets} openUpdateAsset={openUpdateAsset} deleteAsset={deleteAsset} />
+              <AssetList assets={watchlist} openUpdateAsset={openUpdateAsset} />
               <Modal
                   ariaHideApp={false}
                   isOpen={modalIsOpen}
