@@ -1,5 +1,3 @@
-import '@styles/App.css'
-
 function LabelValue({ label, value }) {
   return (
     <div className="flex flex-col">

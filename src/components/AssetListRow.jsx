@@ -1,4 +1,3 @@
-import '@styles/App.css'
 import LabelValue from '@components/LabelValue'
 
 function AssetListRow({ asset, addAsset, removeAsset, containsAsset }) { 
