@@ -14,8 +14,8 @@ function Watchlist() {
     setCurrentAsset({})
   }*/
 
-  const openUpdateAsset = (id) => {
-    const asset = watchlist.find((asset) => asset._id === id)
+  const openUpdateAsset = (ticker) => {
+    const asset = watchlist.find((asset) => asset.ticker === ticker)
     if (asset) {
       setCurrentAsset(asset)
       setModalIsOpen(true)

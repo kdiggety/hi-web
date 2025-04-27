@@ -6,7 +6,7 @@ function AssetList({ assets, addAsset, removeAsset, containsAsset }) {
         {
             (assets === undefined || assets.length === 0) ? <p>No assets</p> :
             assets.map((asset) => (
-                <AssetListRow key={asset._id} asset={asset} addAsset={addAsset} removeAsset={removeAsset} containsAsset={containsAsset} />
+                <AssetListRow key={asset.ticker} asset={asset} addAsset={addAsset} removeAsset={removeAsset} containsAsset={containsAsset} />
             ))
         }
         </>

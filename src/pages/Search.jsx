@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import AssetList from "@components/AssetList"
 import { AssetsContext } from '@contexts/AssetsContext';
 import { WatchlistContext } from '@contexts/WatchlistContext';
@@ -6,6 +6,12 @@ import { WatchlistContext } from '@contexts/WatchlistContext';
 function Search() { 
   const { assets } = useContext(AssetsContext)
   const [filteredAssets, setFilteredAssets] = useState(assets)
+
+  useEffect(() => {
+    if (assets !== undefined && assets.length > 0) {
+      setFilteredAssets(assets)
+    }
+  }, [assets])
 
   const { watchlist, addToWatchlist, removeFromWatchlist, isOnWatchlist } = useContext(WatchlistContext)
 
@@ -17,7 +23,7 @@ function Search() {
       return
     }
     const filteredAssets = assets.filter(asset => {
-        return asset.name?.toLowerCase().includes(searchTerm) || asset._id?.toLowerCase().includes(searchTerm)
+        return asset.name?.toLowerCase().includes(searchTerm) || asset.ticker?.toLowerCase().includes(searchTerm)
     })
     setFilteredAssets(filteredAssets)
   }

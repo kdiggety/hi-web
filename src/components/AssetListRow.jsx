@@ -8,7 +8,7 @@ function AssetListRow({ asset, addAsset, removeAsset, containsAsset }) {
             <div className="asset-header-right">
                 <ul className="horizontal-list">
                     {
-                        (addAsset !== undefined && (containsAsset === undefined || !containsAsset(asset._id))) ?
+                        (addAsset !== undefined && (containsAsset === undefined || !containsAsset(asset.ticker))) ?
                         <li>
                             <a href={asset.weburl} onClick={(e) => {
                             e.preventDefault()
@@ -17,7 +17,7 @@ function AssetListRow({ asset, addAsset, removeAsset, containsAsset }) {
                         </li> : <li/>
                     }
                     {
-                        (removeAsset !== undefined && (containsAsset === undefined || containsAsset(asset._id))) ?
+                        (removeAsset !== undefined && (containsAsset === undefined || containsAsset(asset.ticker))) ?
                         <li>
                             <a href={asset.weburl} onClick={(e) => {
                             e.preventDefault()

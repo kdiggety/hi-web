@@ -13,18 +13,18 @@ export const WatchlistProvider = ({ children }) => {
     }, [watchlist]);
 
     const addToWatchlist = (asset) => {
-        if (isOnWatchlist(asset._id)) {
+        if (isOnWatchlist(asset.ticker)) {
             return
         }
         setWatchlist((prevWatchlist) => [...prevWatchlist, asset]);
     }
 
     const removeFromWatchlist = (asset) => {
-        setWatchlist((prevWatchlist) => prevWatchlist.filter((item) => item._id !== asset._id));
+        setWatchlist((prevWatchlist) => prevWatchlist.filter((item) => item.ticker !== asset.ticker));
     }
     
-    const isOnWatchlist = (id) => {
-        return watchlist.some(asset => asset._id === id)
+    const isOnWatchlist = (ticker) => {
+        return watchlist.some(asset => asset.ticker === ticker)
     }
 
     const values = {

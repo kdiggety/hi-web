@@ -12,6 +12,7 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages'),
       '@data': path.resolve(__dirname, './src/data'),
       '@contexts': path.resolve(__dirname, './src/contexts'),
+      '@companyProfileClient': path.resolve(__dirname, './serviceClients/companyProfileClient'),
     },
   },
 })
